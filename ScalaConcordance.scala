@@ -19,7 +19,6 @@ object concordance {
     The outer list will contain the 'sections' and each section will contain a list of words
     */
     def split_into_words(input: String): Array[String] = {
-
         return invalid_chars.replaceAllIn(input, " ")
               .toLowerCase
               .split(" +")
@@ -35,7 +34,6 @@ object concordance {
     :returns: a data structure of {word: [section_num, ... ] }
     */
     def concordance(input: java.util.Iterator[String]): MapOfLists = {
-
         // Create an empty result value
         var result = new MapOfLists()
 
@@ -69,9 +67,11 @@ object concordance {
         }
     }
 
+    /**
+     * The main function this will accept input on stdin and 
+     * output the result to stdout
+     */
     def main(args: Array[String]): Unit = {
-        println("Hello, world!")
-
         val input =  new Scanner(System.in).useDelimiter(sentence_sep)
         val concordance_result = concordance(input)
         printer(concordance_result)
